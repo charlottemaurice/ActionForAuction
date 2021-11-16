@@ -1,0 +1,71 @@
+<div class="bg-light align-items-center">
+  <br>
+  <div class="row justify-content-md-center">
+    <h2>Invitations en attentes</h2>
+  </div>
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th>Auteur du Doodle</th>
+      <th>Nom</th>
+      <th>Lieu</th>
+      <th>Note</th>
+      <th>Date de début</th>
+      <th>Date de fin</th>
+      <th>Accepter Date</th>
+      <th>Participant(s)</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let doodle of getDoodleMe(); let i = index">
+    <tr>
+      <ng-container *ngIf="utilisateurEstInvite(doodle.listeUtilisateur)">
+        <th>{{doodle.utilisateurEmetteur}}</th>
+        <th>{{doodle.nomEvent}}</th>
+        <th>{{doodle.lieu}}</th>
+        <th>{{doodle.commentaire}}</th>
+
+        <th>
+          <div *ngFor="let horaire of doodle.horaire">
+            {{horaire.dateDebut}}
+          </div>
+        </th>
+        <th>
+          <div *ngFor="let horaire of doodle.horaire">
+            {{horaire.dateFin}}
+          </div>
+        </th>
+        <th>
+          <div *ngFor="let horaire of doodle.horaire; let idBox = index">
+             <button (click)="updateCreneau(horaire, idBox, i, doodle.choix)">{{checkButton(horaire, idBox, i, doodle.choix)}}</button>
+          </div>
+        </th>
+        <th>
+          <div *ngFor="let participant of doodle.listeUtilisateur">
+            {{participant}}
+          </div>
+        </th>
+        <th>
+          <button type="button" class="btn btn-success btn-block" (click)="validerChoix(i, doodle)" >Accepter</button>
+          <br>
+          <button type="button" class="btn btn-danger btn-block"
+                  (click)="supprimerParticipant(doodle)">Supprimer
+          </button>
+        </th>
+      </ng-container>
+    </tr>
+
+    </ng-container>
+    </tbody>
+  </table>
+  <div class="row justify-content-md-center align-items-center">
+    <div class="col-md-6">
+      <button type="button" class="btn btn-info btn-block"
+              routerLink="/moncompte">Retour
+      </button>
+    </div>
+  </div>
+  <br>
+</div>
+

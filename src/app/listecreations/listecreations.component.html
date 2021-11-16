@@ -1,0 +1,62 @@
+<div class="bg-light align-items-center">
+  <div class="row justify-content-md-center align-items-center">
+    <h2>Liste de vos DoodleMe</h2>
+  </div>
+  <br>
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th>NomEvent</th>
+      <th>Lieu</th>
+      <th>Commentaire</th>
+      <th>Date de début</th>
+      <th>Date de fin</th>
+      <th>Participant(s) en attente</th>
+      <th>Participant(s) accepté</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tr *ngFor="let doodle of getDoodleMe()">
+      <ng-container *ngIf="utilisateurEnCours(doodle)">
+        <th>{{doodle.nomEvent}}</th>
+        <th>{{doodle.lieu}}</th>
+        <th>{{doodle.commentaire}}</th>
+
+        <th>
+          <div *ngFor="let horaire of doodle.horaire">
+            {{horaire.dateDebut}}
+          </div>
+        </th>
+
+        <th>
+          <div *ngFor="let horaire of doodle.horaire">
+            {{horaire.dateFin}}
+          </div>
+        </th>
+
+        <th>
+          <div *ngFor="let participant of doodle.listeUtilisateur">
+            {{participant}}
+          </div>
+        </th>
+        <th>
+          <button (click)="viewMoreDoodle(doodle)">Voir</button>
+        </th>
+        <th>
+          <button type="button" class="btn btn-warning"
+                  (click)="annulerEvent(doodle)">Annuler
+          </button>
+        </th>
+      </ng-container>
+    </tr>
+  </table>
+  <div class="row justify-content-md-center align-items-center">
+
+    <div class="col-md-6">
+      <button type="button" class="btn btn-info btn-block"
+              routerLink="/moncompte">Retour
+      </button>
+    </div>
+  </div>
+  <br>
+</div>

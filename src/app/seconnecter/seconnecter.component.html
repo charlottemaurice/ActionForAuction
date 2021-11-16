@@ -1,0 +1,24 @@
+<div class="bg-light align-items-center">
+  <br>
+  <div class="row justify-content-md-center">
+    <h2>Se connecter à son compte</h2>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <div class="col-md-5">
+      <input class="form-control" size="50" [(ngModel)]="pseudo" type="text" placeholder="Pseudo" maxlength="50" required><br>
+    </div>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <div class="col-md-3">
+      <button type="button" class="btn btn-info btn-lg btn-block" routerLink="/accueil">Accueil</button>
+    </div>
+    <div class="col-md-3">
+      <button type="button" class="btn btn-info btn-lg btn-block"
+              (click)="seConnecter()">Se connecter
+      </button>
+    </div>
+  </div>
+  <br>
+</div>

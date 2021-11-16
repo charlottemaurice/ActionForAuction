@@ -1,0 +1,35 @@
+<div class="bg-light align-items-center">
+  <div class="row justify-content-md-center">
+    <h2 class="font-weight-bold">Créez vous un compte ! </h2>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <div class="col-md-1.5">
+      <input class="form-control" [(ngModel)]="pseudo" type="text" placeholder="Pseudo" maxlength="20" required>
+    </div>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <div class="col-md-1.5">
+      <input class="form-control" [(ngModel)]="nom" type="text" placeholder="Nom" maxlength="20" required>
+    </div>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <div class="col-md-1.5">
+      <input class="form-control" [(ngModel)]="prenom" type="text" placeholder="Prénom" maxlength="20" required>
+    </div>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <div class="col-md-3">
+      <button type="button" class="btn btn-info btn-lg btn-block" routerLink="/accueil">Retour à l'accueil</button>
+    </div>
+    <div class="col-md-3">
+      <button type="button" class="btn btn-info btn-lg btn-block"
+              (click)="ajouterUtilisateur()">Continuer
+      </button>
+    </div>
+  </div>
+  <br>
+</div>

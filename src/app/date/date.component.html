@@ -1,0 +1,33 @@
+<div class="bg-light align-items-center">
+  <div class="row justify-content-md-center">
+    <h2>Choisissez vos dates</h2>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <div class="col-md-4">
+      <div class="formulaireHoraire" *ngFor="let obj of horaires ; let i = index">
+        <span>De </span> <input type="datetime-local" [(ngModel)]="obj.dateDebut" name="dateDebut{{i}}" max="{{obj.dateFin}}" required>
+        <span> à </span>
+        <input type="datetime-local" [(ngModel)]="obj.dateFin" min="{{obj.dateDebut}}" name="dateFin{{i}}" required>
+        <button class="btn btn-danger btn-sm" *ngIf="i!=0" (click)="supprimerCrenau(i)">-</button>
+      </div>
+    </div>
+    <div class="col-md-auto">
+      <button type="button" class="btn btn-info btn-sm"
+              (click)="ajouterCreneau()">+
+        <br />
+      </button>
+    </div>
+  </div>
+  <br/>
+
+  <div class="row justify-content-md-center">
+    <div class="col-md-2">
+      <input class="btn btn-danger " name="control" type="reset" value="Retour" routerLink="/creerdoodleme">
+    </div>
+    <div class="col-md-1">
+      <input class="btn btn-info " name="control" type="submit" (click)="ajouterDoodleMeHoraire()" value="Continuer">
+    </div>
+  </div>
+  <br>
+</div>

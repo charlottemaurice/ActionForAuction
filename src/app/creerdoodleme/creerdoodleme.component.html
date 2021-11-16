@@ -1,0 +1,48 @@
+<div class="bg-light align-items-center">
+  <br>
+  <div class="row justify-content-md-center">
+    <h2>Pour quelle occasion?</h2>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <div class="col-md-0">
+      <img src="https://img.icons8.com/material/24/000000/edit--v1.png"/>
+    </div>
+    <div class="col-md-5">
+      <input class="form-control" size=50 maxlength="50" type="text" [(ngModel)]="nomEvent"
+             placeholder="Nom de l'évènement:" required>
+    </div>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <div class="col-md-0">
+      <img src="https://img.icons8.com/material-rounded/24/000000/place-marker.png"/>
+    </div>
+    <div class="col-md-5">
+      <input class="form-control" size=40 type="text" [(ngModel)]="lieu" placeholder="Lieu:" required>
+    </div>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <div class="col-md-0">
+      <img src="https://img.icons8.com/material-rounded/24/000000/tasks.png"/>
+    </div>
+    <div class="col-md-5">
+      <input class="form-control" size=40 type="text" [(ngModel)]="commentaire" placeholder="Commentaire:" required>
+    </div>
+  </div>
+
+  <br>
+  <div class="row justify-content-md-center">
+
+    <div class="col-md-2">
+      <button class="btn btn-danger btn-lg" type="button" routerLink="/bienvenue">Retour</button>
+    </div>
+
+    <div class="col-md-1">
+      <button class="btn btn-info btn-lg" (click)="ajouterDoodleMeFirst()">Continuer</button>
+    </div>
+
+  </div>
+  <br>
+</div>

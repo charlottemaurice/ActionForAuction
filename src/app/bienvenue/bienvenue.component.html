@@ -1,0 +1,19 @@
+<div class="bg-light align-items-center">
+  <div class="row justify-content-md-center">
+    <h2>Bienvenue {{pseudo}} !</h2>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <input class="btn btn-info" type="button" value="Créer un nouveau DoodleMe !" routerLink="/creerdoodleme">
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <input class="btn btn-info" type="button" value="Mon compte" routerLink="/moncompte">
+    <br>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <input class="btn btn-danger" (click)="seDeconnecter()" type="button" value="Se déconnecter" routerLink="/">
+  </div>
+  <br>
+</div>

@@ -1,0 +1,46 @@
+<div class="bg-light align-items-center">
+  <br>
+  <div class="row justify-content-md-center">
+    <h2 class="font-weight-bold">Ajoutez des participants à votre DoodleMe !</h2>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <div class="col-md-21">
+      <input type="text" [(ngModel)]="utilisateur" name="utilisateur" required>
+    </div>
+    <div class="col-md-1">
+      <input class="btn btn-info " name="control" type="submit" (click)="ajouterUtilisateur()" value="+">
+    </div>
+  </div>
+  <br>
+
+  <table class="table tableparticipant" >
+    <ng-container>
+    <tr *ngFor="let user of listeUtilisateurs ; let i = index">
+      <th><label> {{ listeUtilisateurs[i] }}</label> </th>
+      <th><p> <input class="btn btn-info " name="control" type="submit" (click)="supprimerUtilisateur(i)" value="-" > </p> </th>
+    </tr>
+    </ng-container>
+  </table>
+
+  <br/>
+  <div class="row justify-content-md-center">
+    <input type="radio" id="choix1" (change)="updateChoix(1)" name="drone" value="choix1">
+    <label for="choix1"> Les participants peuvent indiquer plusieurs créneaux</label>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <input type="radio" (change)="updateChoix(2)" id="choix2" name="drone" value="choix2">
+    <label for="choix2"> Les participants peuvent choisir qu'un seul créneau</label>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <div class="col-md-2">
+      <input class="btn btn-danger" name="control" type="reset" value="Retour" routerLink="/date">
+    </div>
+    <div class="col-md-1">
+      <input class="btn btn-info " name="control" type="submit" (click)="ajouterDoodleMeSondage()" value="Continuer">
+    </div>
+  </div>
+  <br>
+</div>

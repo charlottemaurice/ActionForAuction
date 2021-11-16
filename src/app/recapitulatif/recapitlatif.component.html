@@ -1,0 +1,48 @@
+<div class="bg-light align-items-center">
+  <div class="row justify-content-md-center">
+
+    <h2>Est-vous sûr de vouloir créer votre DoodleMe? </h2>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <p>Occasion: {{doodle.nomEvent}}</p>
+  </div>
+  <div class="row justify-content-md-center">
+    <p>Lieu de l'évènement: {{doodle.lieu}}</p>
+  </div>
+  <div class="row justify-content-md-center">
+    <p>Pseudos des invité(s): {{doodle.listeUtilisateur}}</p>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <p> Commentaire sur l'évenement: {{doodle.commentaire}}</p>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <p> Créneaux proposé:  </p>
+    <ng-container *ngFor=" let creneau of doodle.horaire">
+      <p> du {{creneau.dateDebut}} au {{creneau.dateFin}}, </p>
+    <br />
+    </ng-container>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <p>
+      <ng-container *ngIf="(doodle.choix == 1)">
+        Les participants pourront indiquer plusieurs créneaux
+      </ng-container>
+      <ng-container *ngIf="(doodle.choix == 2)">
+        Les participants pourront choisir qu'un seul créneau
+      </ng-container>
+    </p>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-md-2">
+      <input class="btn btn-danger " name="control" type="reset" value="Retour" routerLink="/sondage">
+    </div>
+    <div class="col-md-1">
+      <input class="btn btn-info " name="control" type="submit" (click)="validerDoodle()" value="Valider">
+    </div>
+  </div>
+  <br>
+</div>
